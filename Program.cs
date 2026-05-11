@@ -2,23 +2,54 @@
 
 Console.WriteLine("Plan Your Heist!");
 
-Console.WriteLine("Enter a heist difficulty");
+Console.WriteLine("Enter a bank difficulty level");
 
 int bankDifficulty = int.Parse(Console.ReadLine()!);
 
-Console.WriteLine("enter a team member's name and save that name");
+Console.WriteLine("Enter a team member's name and save that name");
 
 string memberName = Console.ReadLine()!;
 
 while (!string.IsNullOrEmpty(memberName))
 {
-    Console.WriteLine("enter a team member's skill level and save that skill level with the name");
+    int skillLevel = 0;
 
-    int skillLevel = int.Parse(Console.ReadLine()!);
+    while (skillLevel == 0)
+    {
+        Console.WriteLine("Enter a team member's skill level and save that skill level with the name");
+        try
+        {
+            skillLevel = int.Parse(Console.ReadLine()!);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please only enter a number");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            Console.WriteLine("There was an error. Please try again.");
+        }
+    }
+    decimal courageFactor = 0.0M;
 
-    Console.WriteLine("enter a team member's courage factor, a decimal between 0.0 and 2.0, and save that courage factor with the name");
-
-    decimal courageFactor = decimal.Parse(Console.ReadLine()!);
+    while (courageFactor == 0.0M)
+    {
+        Console.WriteLine("Enter a team member's courage factor, a decimal between 0.0 and 2.0, and save that courage factor with the name");
+        try
+        {
+            courageFactor = decimal.Parse(Console.ReadLine()!);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please only enter a decimal between 0.0 and 2.0");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            Console.WriteLine("There was an error. Please try again.");
+        }
+    }
 
     TeamMember teamMember = new TeamMember()
     {
@@ -31,7 +62,7 @@ while (!string.IsNullOrEmpty(memberName))
 
     Console.WriteLine("Enter a team member's name and save that name or press enter to quit");
 
-    memberName = Console.ReadLine()!;
+    memberName = Console.ReadLine()!.Trim();
 }
 
 Console.WriteLine("Crew Members:");
