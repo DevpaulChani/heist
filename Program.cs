@@ -8,6 +8,8 @@ Console.WriteLine("enter a team member's name and save that name");
 
 string memberName = Console.ReadLine()!;
 
+while (!string.IsNullOrEmpty(memberName)){
+
 Console.WriteLine("enter a team member's skill level and save that skill level with the name");
 
 int skillLevel = int.Parse(Console.ReadLine()!);
@@ -25,4 +27,12 @@ TeamMember teamMember = new TeamMember()
 
 members.Add(teamMember);
 
-Console.WriteLine($"Name: {teamMember.Name} SkillLevel: {teamMember.SkillLevel} CourageFactor: {teamMember.CourageFactor}");
+Console.WriteLine("enter a team member's name and save that name or press enter to quit");
+
+memberName = Console.ReadLine()!;
+}
+
+Console.WriteLine("Crew Members:");
+foreach (TeamMember member in members){
+    Console.WriteLine($"Name: {member.Name} SkillLevel: {member.SkillLevel} CourageFactor: {member.CourageFactor}");
+}
