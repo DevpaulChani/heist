@@ -2,6 +2,10 @@
 
 Console.WriteLine("Plan Your Heist!");
 
+Console.WriteLine("Enter a heist difficulty");
+
+int bankDifficulty = int.Parse(Console.ReadLine()!);
+
 Console.WriteLine("enter a team member's name and save that name");
 
 string memberName = Console.ReadLine()!;
@@ -36,7 +40,7 @@ foreach (TeamMember member in members){
     Console.WriteLine($"Name: {member.Name} Skill Level: {member.SkillLevel} Courage Factor: {member.CourageFactor}");
 }
 
- int bankDifficulty = 100;
+
 
  int totalSkill= 0;
 
@@ -48,9 +52,12 @@ Console.WriteLine($"the team's combined skill level is:  {totalSkill}");
 
 Console.WriteLine("Enter the number of trial runs");
 
-int runs = int.Parse(Console.ReadLine());
+int runs = int.Parse(Console.ReadLine()!);
 
 Random random = new Random();
+
+int successes = 0;
+int failures = 0;
 
 for (int i = 1; i <= runs; i++){
     int luck = random.Next(-10,11);
@@ -62,10 +69,14 @@ for (int i = 1; i <= runs; i++){
     if (totalSkill >= randomDifficulty)
     {
         Console.WriteLine("You Succeed!");
+        successes +=1;
     }
 
     else
     {
         Console.WriteLine("You Fail!");
+        failures +=1;
     }
 }
+
+Console.WriteLine($"You succeeded {successes} times and failed {failures} times.");
