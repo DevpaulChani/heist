@@ -1,6 +1,4 @@
-﻿string input;
-
-List<TeamMember> members = new List<TeamMember>();
+﻿List<TeamMember> members = new List<TeamMember>();
 
 Console.WriteLine("Plan Your Heist!");
 
@@ -14,7 +12,7 @@ Console.WriteLine("enter a team member's skill level and save that skill level w
 
 int skillLevel = int.Parse(Console.ReadLine()!);
 
-Console.WriteLine("enter a team member's courage factor and save that courage factor with the name");
+Console.WriteLine("enter a team member's courage factor, a decimal between 0.0 and 2.0, and save that courage factor with the name");
 
 decimal courageFactor = decimal.Parse(Console.ReadLine()!);
 
