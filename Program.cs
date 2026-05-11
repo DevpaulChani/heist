@@ -10,7 +10,7 @@ while (!string.IsNullOrEmpty(memberName))
     int skillLevel = int.Parse(Console.ReadLine()!);
     Console.WriteLine("enter a team member's courage factor, a decimal between 0.0 and 2.0, and save that courage factor with the name");
     decimal courageFactor = decimal.Parse(Console.ReadLine()!);
-    TeamMember teamMember = new TeamMember()
+    TeamMember teamMember = new()
     {
         Name = memberName,
         SkillLevel = skillLevel,
@@ -45,7 +45,7 @@ foreach (TeamMember member in heistMembers)
 Console.WriteLine($"The team's combined skill level is:  {totalSkill}");
 Console.WriteLine("Enter the number of trial runs");
 int runs = int.Parse(Console.ReadLine()!);
-Random random = new Random();
+Random random = new();
 int successes = 0;
 int failures = 0;
 for (int i = 1; i <= runs; i++)
@@ -64,5 +64,5 @@ for (int i = 1; i <= runs; i++)
         failures += 1;
     }
 }
-Console.WriteLine($"You succeeded {successes} times and failed {failures} times."); 
+Console.WriteLine($"You succeeded {successes} times and failed {failures} times.");
 class TeamMember{public string Name {get; set;} ="";public int SkillLevel{get; set;}public decimal CourageFactor {get; set;}}
