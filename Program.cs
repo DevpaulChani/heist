@@ -65,3 +65,4 @@ for (int i = 1; i <= runs; i++)
     }
 }
 Console.WriteLine($"You succeeded {successes} times and failed {failures} times."); 
+class TeamMember{public string Name {get; set;} ="";public int SkillLevel{get; set;}public decimal CourageFactor {get; set;}}
