@@ -31,6 +31,25 @@ memberName = Console.ReadLine()!;
 }
 
 Console.WriteLine("Crew Members:");
+
 foreach (TeamMember member in members){
     Console.WriteLine($"Name: {member.Name} SkillLevel: {member.SkillLevel} CourageFactor: {member.CourageFactor}");
+}
+
+ int bankDifficulty = 100;
+
+ int totalSkill= 0;
+
+ foreach (TeamMember member in members){
+   totalSkill += member.SkillLevel; 
+}
+
+if (totalSkill >= bankDifficulty)
+{
+    Console.WriteLine("You Succeed!");
+}
+
+else
+{
+    Console.WriteLine("You Fail!");
 }
