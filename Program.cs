@@ -40,27 +40,32 @@ foreach (TeamMember member in members){
 
  int totalSkill= 0;
 
-    foreach (TeamMember member in members){
-    totalSkill += member.SkillLevel; 
-    }
-
-Random random = new Random();
-
-int luck = random.Next(-10,11);
-
-
-int randomDifficulty = bankDifficulty + luck;
+foreach (TeamMember member in members){
+totalSkill += member.SkillLevel; 
+}
 
 Console.WriteLine($"the team's combined skill level is:  {totalSkill}");
 
-Console.WriteLine($"the bank's difficulty level is:  {randomDifficulty}");
+Console.WriteLine("Enter the number of trial runs");
 
-if (totalSkill >= randomDifficulty)
-{
-    Console.WriteLine("You Succeed!");
-}
+int runs = int.Parse(Console.ReadLine());
 
-else
-{
-    Console.WriteLine("You Fail!");
+Random random = new Random();
+
+for (int i = 1; i <= runs; i++){
+    int luck = random.Next(-10,11);
+
+    int randomDifficulty = bankDifficulty + luck;
+
+    Console.WriteLine($"the bank's difficulty level is:  {randomDifficulty}");
+
+    if (totalSkill >= randomDifficulty)
+    {
+        Console.WriteLine("You Succeed!");
+    }
+
+    else
+    {
+        Console.WriteLine("You Fail!");
+    }
 }
